@@ -1,47 +1,2126 @@
-# Rota principal
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-# Rota de sitemap
-@app.route('/sitemap.xml')
-def sitemap():
-    sitemap_content = '''<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://ubsduquedecaxias.com/</loc>
-        <lastmod>2025-11-26</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://ubsduquedecaxias.com/#services</loc>
-        <lastmod>2025-11-26</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://ubsduquedecaxias.com/#gallery</loc>
-        <lastmod>2025-11-26</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-</urlset>'''
+<!DOCTYPE html>
+<html lang="pt-BR" itemscope itemtype="https://schema.org/MedicalOrganization">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    response = make_response(sitemap_content)
-    response.headers['Content-Type'] = 'application/xml'
-    return response
-
-# Rota robots.txt
-@app.route('/robots.txt')
-def robots():
-    robot_txt = '''User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /private/
-
-Sitemap: https://ubsduquedecaxias.com/sitemap.xml'''
+    <!-- Título otimizado -->
+    <title>UBS Duque de Caxias Betim MG | Unidade Básica de Saúde | Atendimento Médico & Vacinação</title>
     
-    response = make_response(robot_txt)
-    response.headers['Content-Type'] = 'text/plain'
-    return response
+    <!-- Meta Description otimizada -->
+    <meta name="description" content="📍 UBS Duque de Caxias em Betim MG - Unidade Básica de Saúde completa com atendimento médico, vacinação, consultas, farmácia básica e programas de saúde. Telefone: (31) 99530-9507. Atendemos de Seg a Sex das 7h às 17h.">
+    
+    <!-- Meta Keywords otimizadas -->
+    <meta name="keywords" content="UBS Duque de Caxias, Posto de Saúde Betim, Unidade Básica de Saúde, Saúde Pública Betim, atendimento médico Betim, vacinação Betim, consultas médicas, farmácia básica, saúde da família, ESF, pré-natal, saúde bucal, SUS Betim">
+    <meta name="author" content="UBS Duque de Caxias">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ubsduquedecaxias.com" />
+    
+    <!-- Preconnect para performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.google.com">
+    
+    <!-- Preload para imagens críticas -->
+    <link rel="preload" href="WhatsApp Image 2025-11-26 at 11.18.35.jpeg" as="image" type="image/jpeg">
+    
+    <!-- Hreflang para internacionalização -->
+    <link rel="alternate" hreflang="pt-BR" href="https://ubsduquedecaxias.com" />
+    <link rel="alternate" hreflang="pt" href="https://ubsduquedecaxias.com" />
+    <link rel="alternate" hreflang="x-default" href="https://ubsduquedecaxias.com" />
+    
+    <!-- Open Graph para redes sociais -->
+    <meta property="og:title" content="UBS Duque de Caxias Betim | Unidade Básica de Saúde">
+    <meta property="og:description" content="Unidade Básica de Saúde em Betim oferecendo atendimento médico completo para toda a família. Vacinação, consultas, farmácia e programas de saúde.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ubsduquedecaxias.com">
+    <meta property="og:image" content="https://ubsduquedecaxias.com/imagens/logo-ubs-duque-caxias.jpg">
+    <meta property="og:image:alt" content="UBS Duque de Caxias Betim - Frente da unidade de saúde">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="UBS Duque de Caxias">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UBS Duque de Caxias Betim | Atendimento de Saúde">
+    <meta name="twitter:description" content="Unidade Básica de Saúde em Betim com atendimento médico completo. WhatsApp: (31) 99530-9507">
+    <meta name="twitter:image" content="https://ubsduquedecaxias.com/imagens/twitter-card.jpg">
+    
+    <!-- Dublin Core Metadata -->
+    <meta name="DC.title" content="UBS Duque de Caxias - Excelência em Saúde Pública" />
+    <meta name="DC.description" content="UBS Duque de Caxias - Unidade Básica de Saúde em Betim MG" />
+    <meta name="DC.creator" content="UBS Duque de Caxias" />
+    <meta name="DC.subject" content="Saúde Pública, UBS, Betim, Atendimento Médico" />
+    
+    <!-- Schema.org markup para Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalOrganization",
+        "@id": "https://ubsduquedecaxias.com/#organization",
+        "name": "UBS Duque de Caxias",
+        "legalName": "Unidade Básica de Saúde Duque de Caxias",
+        "description": "Unidade Básica de Saúde em Betim MG oferecendo atendimento médico completo para a comunidade",
+        "url": "https://ubsduquedecaxias.com",
+        "telephone": "+55-31-99530-9507",
+        "email": "contato@ubsduquedecaxias.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Lisboa, 91",
+            "addressLocality": "Betim",
+            "addressRegion": "Minas Gerais",
+            "addressRegionCode": "MG",
+            "postalCode": "32673-550",
+            "addressCountry": "BR",
+            "addressCountryCode": "BR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-19.967899",
+            "longitude": "-44.198372"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "07:00",
+                "closes": "17:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "07:00",
+                "closes": "12:00"
+            }
+        ],
+        "medicalSpecialty": [
+            "General Practice",
+            "Pediatrics",
+            "Gynecology",
+            "Vaccination",
+            "Dentistry",
+            "Prenatal Care",
+            "Pharmacy",
+            "Social Services"
+        ],
+        "serviceArea": {
+            "@type": "AdministrativeArea",
+            "name": "Betim, Minas Gerais"
+        },
+        "knowsLanguage": ["Portuguese", "Brazilian Portuguese"],
+        "priceRange": "Gratuito",
+        "paymentAccepted": "SUS - Sistema Único de Saúde",
+        "currenciesAccepted": "BRL",
+        "foundingDate": "2005",
+        "numberOfEmployees": "40",
+        "areaServed": "Bairro Duque de Caxias e Região",
+        "sameAs": [
+            "https://www.facebook.com/profile.php?id=61584051702563",
+            "https://www.instagram.com/ubs.duquedecaxias/"
+        ],
+        "logo": "https://ubsduquedecaxias.com/imagens/logo-ubs.png",
+        "image": [
+            "https://ubsduquedecaxias.com/imagens/fachada-ubs.jpg",
+            "https://ubsduquedecaxias.com/imagens/consultorio-ubs.jpg",
+            "https://ubsduquedecaxias.com/imagens/vacinacao-ubs.jpg"
+        ]
+    }
+    </script>
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://ubsduquedecaxias.com/#localbusiness",
+        "name": "UBS Duque de Caxias",
+        "image": "https://ubsduquedecaxias.com/imagens/fachada-ubs.jpg",
+        "priceRange": "Gratuito",
+        "telephone": "+55-31-99530-9507",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Lisboa, 91",
+            "addressLocality": "Betim",
+            "addressRegion": "MG",
+            "postalCode": "32673-550",
+            "addressCountry": "BR"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-19.967899",
+            "longitude": "-44.198372"
+        },
+        "url": "https://ubsduquedecaxias.com",
+        "openingHours": "Mo-Fr 07:00-17:00, Sa 07:00-12:00"
+    }
+    </script>
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Início",
+                "item": "https://ubsduquedecaxias.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "UBS Betim MG",
+                "item": "https://ubsduquedecaxias.com/#ubs-betim"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Serviços de Saúde",
+                "item": "https://ubsduquedecaxias.com/#services"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Qual o horário de funcionamento da UBS Duque de Caxias em Betim?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A UBS Duque de Caxias funciona de segunda a sexta-feira das 7h às 17h, e aos sábados das 7h às 12h."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quais serviços a UBS Duque de Caxias oferece?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oferecemos consultas médicas, vacinação, farmácia básica, pré-natal, saúde bucal, assistência social e programas de saúde da família (ESF)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Preciso de agendamento para atendimento na UBS Duque de Caxias?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Alguns serviços requerem agendamento prévio. Para informações específicas, entre em contato pelo telefone (31) 99530-9507 ou WhatsApp."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "A UBS Duque de Caxias atende pelo SUS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sim, todos os serviços são oferecidos gratuitamente através do Sistema Único de Saúde (SUS)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Onde fica a UBS Duque de Caxias em Betim?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Estamos localizados na Rua Lisboa, 91, no bairro Duque de Caxias, Betim - MG, CEP 32673-550."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Review Schema (opcional - pode adicionar depois) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "AggregateRating",
+        "itemReviewed": {
+            "@type": "MedicalOrganization",
+            "name": "UBS Duque de Caxias"
+        },
+        "ratingValue": "4.8",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "42"
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0066cc">
+    <meta name="msapplication-TileColor" content="#0066cc">
+    <meta name="theme-color" content="#0066cc">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    
+    <style>
+        :root {
+            --primary: #0066cc;
+            --primary-dark: #0052a3;
+            --primary-light: #4d94ff;
+            --secondary: #00c897;
+            --accent: #ff6b6b;
+            --dark: #1e2a3a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Skip to main content for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 10000;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Accessibility Controls */
+        .accessibility-bar {
+            background: var(--dark);
+            color: var(--white);
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .accessibility-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .accessibility-controls {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .font-controls, .contrast-control, .spacing-control {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .accessibility-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .accessibility-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .language-selector select {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .language-selector option {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-scrolled {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+
+        .whatsapp-cta {
+            background: #25D366;
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            background: #20bd5a;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(67, 67, 67, 0.838), rgba(0, 102, 204, 0.696)), url('WhatsApp Image 2025-11-26 at 11.18.35.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 140px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.03);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: #20bd5a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .floating-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow-lg);
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            max-width: 180px;
+            z-index: 3;
+        }
+
+        .floating-card:nth-child(1) {
+            top: 30px;
+            right: 40px;
+            animation-delay: 0s;
+        }
+
+        .floating-card:nth-child(2) {
+            bottom: 80px;
+            left: 20px;
+            animation-delay: 2s;
+        }
+
+        .floating-card:nth-child(3) {
+            top: 300px;
+            right: 10px;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .card-desc {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Services Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 30px 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 102, 204, 0.1);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            gap: 10px;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--dark);
+            color: var(--white);
+            padding: 70px 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--light);
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 220px;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: var(--white);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 102, 204, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-details p {
+            color: var(--gray);
+        }
+
+        .whatsapp-highlight {
+            background: rgba(37, 211, 102, 0.1);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-top: 10px;
+            border-left: 4px solid #25D366;
+        }
+
+        .whatsapp-highlight .contact-icon {
+            background: rgba(37, 211, 102, 0.2);
+            color: #25D366;
+        }
+
+        .map-placeholder {
+            background: var(--light);
+            border-radius: var(--radius);
+            height: 100%;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+            color: var(--gray);
+        }
+
+        .map-placeholder i {
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+
+        /* New Articles Section */
+        .articles {
+            background: var(--light);
+            padding: 80px 0;
+        }
+
+        .articles-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .article-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .article-card p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .article-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* SEO Content Section */
+        .seo-content {
+            background: var(--white);
+            padding: 60px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .seo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .seo-article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .seo-article h2 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .seo-article h3 {
+            color: var(--primary);
+            margin: 25px 0 15px;
+            font-size: 1.4rem;
+        }
+
+        .seo-article p {
+            color: var(--dark);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .seo-article ul {
+            margin: 15px 0 15px 20px;
+            color: var(--dark);
+        }
+
+        .seo-article li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 25px 0 15px;
+        }
+
+        .footer-compact {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .footer-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .footer-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 12px;
+            max-width: 400px;
+            line-height: 1.4;
+        }
+
+        .footer-contact {
+            opacity: 0.8;
+        }
+
+        .footer-contact p {
+            margin: 5px 0;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-contact i {
+            width: 16px;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .footer-copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 12px;
+            text-align: center;
+        }
+
+        .footer-copyright p {
+            margin: 0;
+            opacity: 0.6;
+            font-size: 0.8rem;
+        }
+
+        /* High Contrast Mode */
+        .high-contrast {
+            --primary: #000000;
+            --primary-dark: #000000;
+            --primary-light: #333333;
+            --secondary: #000000;
+            --accent: #000000;
+            --dark: #000000;
+            --light: #ffffff;
+            --gray: #000000;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .high-contrast body {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .high-contrast .service-card,
+        .high-contrast .card,
+        .high-contrast .gallery-item {
+            border: 2px solid #000000;
+            background: #ffffff;
+        }
+
+        .high-contrast .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+        }
+
+        .high-contrast .stats {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .high-contrast footer {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .high-contrast .accessibility-bar {
+            background: #000000;
+        }
+
+        /* Increased spacing mode */
+        .increased-spacing * {
+            letter-spacing: 0.5px;
+        }
+
+        .increased-spacing .section-title,
+        .increased-spacing .service-title,
+        .increased-spacing .card-title,
+        .increased-spacing .contact-details h3,
+        .increased-spacing .footer-col h3 {
+            letter-spacing: 1px;
+        }
+
+        /* VLibras Widget */
+        .vlibras-wrapper {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-visual {
+                order: -1;
+                height: 300px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-main {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .accessibility-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 120px 0 100px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            /* Remove floating animation on mobile */
+            .floating-card {
+                position: relative !important;
+                margin: 10px auto;
+                max-width: 100%;
+                animation: none !important;
+                transform: none !important;
+            }
+            
+            .hero-visual {
+                height: auto;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .accessibility-controls {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                gap: 30px;
+            }
+            
+            .footer-social {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for screen readers -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Accessibility Bar -->
+    <div class="accessibility-bar">
+        <div class="accessibility-container">
+            <div class="accessibility-controls">
+                <div class="font-controls">
+                    <span>Ajustar texto:</span>
+                    <button class="accessibility-btn" id="decrease-font" aria-label="Diminuir tamanho da fonte">A-</button>
+                    <button class="accessibility-btn" id="normal-font" aria-label="Tamanho normal da fonte">A</button>
+                    <button class="accessibility-btn" id="increase-font" aria-label="Aumentar tamanho da fonte">A+</button>
+                </div>
+                <div class="contrast-control">
+                    <button class="accessibility-btn" id="high-contrast" aria-label="Alternar alto contraste">Alto Contraste</button>
+                </div>
+                <div class="spacing-control">
+                    <button class="accessibility-btn" id="increase-spacing" aria-label="Aumentar espaçamento">Espaçamento</button>
+                </div>
+            </div>
+            <div class="language-selector">
+                <select id="language-select" aria-label="Selecionar idioma">
+                    <option value="pt">Português</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-hospital-alt" aria-hidden="true"></i>
+                <span>UBS Duque de Caxias</span>
+            </a>
+            
+            <nav class="nav-menu" role="navigation" aria-label="Menu principal">
+                <a href="#" class="nav-link active" data-translate="nav_home">Início</a>
+                <a href="#services" class="nav-link" data-translate="nav_services">Serviços</a>
+                <a href="#gallery" class="nav-link" data-translate="nav_gallery">Galeria</a>
+                <a href="#contact" class="nav-link" data-translate="nav_contact">Contato</a>
+                <a href="https://wa.me/5531995309507" class="whatsapp-cta" target="_blank" aria-label="Entrar em contato via WhatsApp">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    WhatsApp
+                </a>
+            </nav>
+            
+            <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="main-content">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 data-translate="hero_title">UBS Duque de Caxias Betim: Cuidando da Saúde da Comunidade</h1>
+                <p data-translate="hero_description">Unidade Básica de Saúde em Betim MG oferecendo atendimento médico completo, vacinação, consultas especializadas e programas de saúde da família. Atendimento humanizado e de qualidade para toda a população.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        <span data-translate="hero_button_location">Localização Betim MG</span>
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-stethoscope" aria-hidden="true"></i>
+                        <span data-translate="hero_button_services">Nossos Serviços</span>
+                    </a>
+                    <a href="https://wa.me/5531995309507" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        <span data-translate="hero_button_contact">Agendar pelo WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-md" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-title" data-translate="card1_title">40+ Profissionais</div>
+                    <div class="card-desc" data-translate="card1_desc">Equipe qualificada</div>
+                </div>
+                
+                <div class="floating-card">
+                    <div class="card-icon">
+                        <i class="fas fa-heartbeat" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-title" data-translate="card2_title">Atendimento Humanizado</div>
+                    <div class="card-desc" data-translate="card2_desc">Cuidado integral</div>
+                </div>
+                
+                <div class="floating-card">
+                    <div class="card-icon">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                    </div>
+                    <div class="card-title" data-translate="card3_title">Horário Estendido</div>
+                    <div class="card-desc" data-translate="card3_desc">Seg-Sex 7h às 17h</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <h2 class="section-title" data-translate="services_title">Serviços da UBS Duque de Caxias Betim</h2>
+            <p class="section-subtitle" data-translate="services_subtitle">Oferecemos uma gama completa de serviços de saúde pública pelo SUS para atender toda a família em Betim</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-stethoscope" aria-hidden="true"></i>
+                </div>
+                <h3 class="service-title" data-translate="service1_title">Consultas Médicas</h3>
+                <p class="service-desc" data-translate="service1_desc">Atendimento com clínicos gerais, pediatras, ginecologistas e outros especialistas. Agendamento disponível para consultas regulares.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-syringe" aria-hidden="true"></i>
+                </div>
+                <h3 class="service-title" data-translate="service2_title">Vacinação</h3>
+                <p class="service-desc" data-translate="service2_desc">Imunização para todas as idades conforme calendário nacional. Traga sua carteira de vacinação para atualização.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+                </div>
+                <h3 class="service-title" data-translate="service3_title">Assistência Social</h3>
+                <p class="service-desc" data-translate="service3_desc">Apoio psicossocial, orientação e encaminhamento para programas sociais do município de Betim.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-pills" aria-hidden="true"></i>
+                </div>
+                <h3 class="service-title" data-translate="service4_title">Farmácia Básica</h3>
+                <p class="service-desc" data-translate="service4_desc">Dispensação gratuita de medicamentos essenciais mediante prescrição médica válida do SUS.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-baby" aria-hidden="true"></i>
+                </div>
+                <h3 class="service-title" data-translate="service5_title">Pré-Natal</h3>
+                <p class="service-desc" data-translate="service5_desc">Acompanhamento integral da gestante e do bebê durante toda a gravidez com exames e orientações.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-teeth" aria-hidden="true"></i>
+                </div>
+                <h3 class="service-title" data-translate="service6_title">Saúde Bucal</h3>
+                <p class="service-desc" data-translate="service6_desc">Atendimento odontológico, prevenção, tratamento e educação em saúde bucal para todas as idades.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">11.800+</div>
+                <div class="stat-label" data-translate="stat1_label">População atendida no bairro</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label" data-translate="stat2_label">Equipes Saúde da Família</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number">40+</div>
+                <div class="stat-label" data-translate="stat3_label">Profissionais de saúde</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label" data-translate="stat4_label">Especialidades médicas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery" id="gallery">
+        <div class="section-header">
+            <h2 class="section-title" data-translate="gallery_title">Nossa Estrutura na UBS Duque de Caxias</h2>
+            <p class="section-subtitle" data-translate="gallery_subtitle">Conheça nossas instalações modernas e adequadas para o atendimento em saúde</p>
+        </div>
+        
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2025-11-26 at 11.18.35.jpeg" alt="Fachada da UBS Duque de Caxias em Betim MG">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2025-11-26 at 11.40.17.jpeg" alt="Consultório médico na UBS Duque de Caxias Betim">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2025-11-26 at 11.40.18 (1).jpeg" alt="Sala de vacinação UBS Duque de Caxias">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2025-11-26 at 11.40.18.jpeg" alt="Sala de espera UBS Betim">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2025-11-26 at 11.40.19 (1).jpeg" alt="Corredor da UBS Duque de Caxias">
+                </div>
+
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2025-11-26 at 11.40.19.jpeg" alt="Recepção UBS Betim">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2025-11-26 at 11.40.21 (1).jpeg" alt="Equipamentos UBS Duque de Caxias">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="WhatsApp Image 2025-11-26 at 11.40.21.jpeg" alt="Área externa UBS Betim">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="section articles">
+        <div class="section-header">
+            <h2 class="section-title">Informações sobre Saúde</h2>
+            <p class="section-subtitle">Dicas e orientações importantes para cuidar da sua saúde</p>
+        </div>
+        
+        <div class="articles-container">
+            <article class="article-card">
+                <h3>Importância da Vacinação em Betim</h3>
+                <p>A vacinação é fundamental para prevenir doenças graves como gripe, hepatite, febre amarela e outras. Na UBS Duque de Caxias, mantemos o calendário vacinal atualizado para todas as idades.</p>
+                <a href="#contact" class="article-link">Atualize sua vacinação <i class="fas fa-arrow-right"></i></a>
+            </article>
+            
+            <article class="article-card">
+                <h3>Saúde Bucal: Prevenção é o Melhor Caminho</h3>
+                <p>Consultas regulares ao dentista previnem cáries, doenças gengivais e problemas mais sérios. Oferecemos orientação sobre higiene bucal e tratamentos preventivos.</p>
+                <a href="#contact" class="article-link">Agende avaliação <i class="fas fa-arrow-right"></i></a>
+            </article>
+            
+            <article class="article-card">
+                <h3>Pré-Natal de Qualidade</h3>
+                <p>O acompanhamento durante a gravidez é essencial para a saúde da mãe e do bebê. Realizamos exames, orientações nutricionais e preparação para o parto.</p>
+                <a href="#contact" class="article-link">Inicie seu pré-natal <i class="fas fa-arrow-right"></i></a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="section-header">
+            <h2 class="section-title" data-translate="contact_title">Contato UBS Duque de Caxias Betim</h2>
+            <p class="section-subtitle" data-translate="contact_subtitle">Entre em contato ou visite nossa unidade de saúde em Betim</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3 data-translate="contact_address_title">Endereço da UBS</h3>
+                        <p data-translate="contact_address">Rua Lisboa, 91 - Bairro Duque de Caxias<br>Betim - Minas Gerais, CEP 32673-550</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone" aria-hidden="true"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3 data-translate="contact_phone_title">Telefone UBS</h3>
+                        <p><strong>(31) 99530-9507</strong></p>
+                        <p>Horário comercial: Segunda a Sexta, 7h às 17h</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item whatsapp-highlight">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3 data-translate="contact_whatsapp_title">WhatsApp UBS</h3>
+                        <p><strong>(31) 99530-9507</strong></p>
+                        <p data-translate="contact_whatsapp_desc">Atendimento rápido para informações, agendamentos e dúvidas</p>
+                        <a href="https://wa.me/5531995309507" class="btn btn-whatsapp" style="margin-top: 10px; padding: 10px 20px;" target="_blank">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                            <span data-translate="contact_whatsapp_button">Falar no WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3 data-translate="contact_hours_title">Horário de Funcionamento</h3>
+                        <p data-translate="contact_hours"><strong>Segunda a Sexta:</strong> 7h às 17h<br><strong>Sábado:</strong> 7h às 12h<br><strong>Domingo e Feriados:</strong> Fechado</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-bus" aria-hidden="true"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Como Chegar na UBS</h3>
+                        <p><strong>Ônibus:</strong> Linhas 101, 205, 304 (parada Duque de Caxias)<br><strong>Referência:</strong> Próximo à Praça Central do bairro</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.522435724882!2d-44.19837272468657!3d-19.96789998157311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6c3c7c7c7c7c7%3A0x0!2sRua%20Lisboa%2C%2091%20-%20Duque%20de%20Caxias%2C%20Betim%20-%20MG%2C%2032673-550!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; border-radius: var(--radius); min-height: 400px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Mapa de localização da UBS Duque de Caxias em Betim MG"
+                    aria-label="Localização da UBS Duque de Caxias no mapa do Google">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content Section -->
+    <section class="section seo-content">
+        <div class="seo-container">
+            <div class="seo-article">
+                <h2>UBS Duque de Caxias Betim MG - Unidade Básica de Saúde de Referência</h2>
+                
+                <h3>Serviços de Saúde Pública em Betim</h3>
+                <p>A <strong>UBS Duque de Caxias</strong> é uma Unidade Básica de Saúde localizada no bairro Duque de Caxias em Betim, Minas Gerais. Como parte do Sistema Único de Saúde (SUS), oferecemos atendimento médico completo e gratuito para a população da região.</p>
+                
+                <h3>Atendimento Médico e Especialidades</h3>
+                <p>Nossa unidade conta com uma equipe multidisciplinar composta por mais de 40 profissionais de saúde, incluindo médicos clínicos gerais, pediatras, ginecologistas, dentistas, enfermeiros, técnicos de enfermagem e assistentes sociais. Atendemos aproximadamente 11.800 pessoas da comunidade local.</p>
+                
+                <h3>Programas de Saúde Oferecidos</h3>
+                <ul>
+                    <li><strong>Saúde da Família (ESF):</strong> 3 equipes completas atuando no território</li>
+                    <li><strong>Vacinação:</strong> Sala de vacinação equipada com todas as vacinas do calendário nacional</li>
+                    <li><strong>Pré-Natal:</strong> Acompanhamento integral da gestação</li>
+                    <li><strong>Saúde Bucal:</strong> Consultório odontológico completo</li>
+                    <li><strong>Farmácia Básica:</strong> Medicamentos gratuitos mediante receita</li>
+                    <li><strong>Programas Preventivos:</strong> Hipertensão, diabetes, saúde da mulher e do idoso</li>
+                </ul>
+                
+                <h3>Localização e Acesso</h3>
+                <p>Estamos situados na <strong>Rua Lisboa, 91, no bairro Duque de Caxias, Betim - MG</strong>, CEP 32673-550. A unidade é facilmente acessível pelas principais vias do bairro e conta com estacionamento para visitantes. Várias linhas de ônibus passam próximas à UBS, facilitando o acesso de toda a comunidade.</p>
+                
+                <h3>Horário de Funcionamento</h3>
+                <p>A UBS Duque de Caxias funciona de <strong>segunda a sexta-feira das 7h às 17h</strong>, e aos <strong>sábados das 7h às 12h</strong>. Para emergências fora do horário, recomendamos o atendimento nas UPAs ou hospitais da região de Betim.</p>
+                
+                <h3>Contato e Agendamentos</h3>
+                <p>Para agendamentos de consultas, informações sobre serviços ou dúvidas sobre tratamentos, entre em contato pelo telefone <strong>(31) 99530-9507</strong> ou através do nosso WhatsApp. Nossa equipe está pronta para esclarecer todas as suas dúvidas sobre saúde pública em Betim.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-compact">
+            <div class="footer-main">
+                <div class="footer-info">
+                    <h3>UBS Duque de Caxias Betim</h3>
+                    <p class="footer-desc">Unidade Básica de Saúde comprometida com o cuidado integral da saúde da comunidade do bairro Duque de Caxias em Betim, Minas Gerais.</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> (31) 99530-9507</p>
+                        <p><i class="fas fa-clock"></i> Seg-Sex: 7h-17h | Sáb: 7h-12h</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Rua Lisboa, 91 - Duque de Caxias, Betim - MG</p>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=61584051702563" class="social-link" aria-label="Facebook UBS Duque de Caxias" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/ubs.duquedecaxias/" class="social-link" aria-label="Instagram UBS Duque de Caxias" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/5531995309507" class="social-link" aria-label="WhatsApp UBS Duque de Caxias" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 - UBS Duque de Caxias Betim MG. Todos os direitos reservados. | Unidade vinculada ao SUS - Sistema Único de Saúde</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VLibras Widget -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize VLibras
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+        
+        // Performance tracking
+        window.addEventListener('load', function() {
+            console.log('UBS Duque de Caxias - Site carregado com sucesso');
+            if ('performance' in window) {
+                const perfData = window.performance.timing;
+                const loadTime = perfData.loadEventEnd - perfData.navigationStart;
+                console.log('Tempo de carregamento:', loadTime + 'ms');
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+            
+            // Update active nav link based on scroll position
+            updateActiveNavLink();
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.querySelector('.nav-menu');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            menu.classList.toggle('active');
+            this.setAttribute('aria-expanded', !isExpanded);
+            this.innerHTML = isExpanded ? '<i class="fas fa-bars" aria-hidden="true"></i>' : '<i class="fas fa-times" aria-hidden="true"></i>';
+        });
+
+        // Accessibility features
+        document.getElementById('decrease-font').addEventListener('click', function() {
+            document.documentElement.style.fontSize = '14px';
+            localStorage.setItem('fontSize', '14px');
+        });
+
+        document.getElementById('normal-font').addEventListener('click', function() {
+            document.documentElement.style.fontSize = '16px';
+            localStorage.setItem('fontSize', '16px');
+        });
+
+        document.getElementById('increase-font').addEventListener('click', function() {
+            document.documentElement.style.fontSize = '18px';
+            localStorage.setItem('fontSize', '18px');
+        });
+
+        document.getElementById('high-contrast').addEventListener('click', function() {
+            document.body.classList.toggle('high-contrast');
+            const isHighContrast = document.body.classList.contains('high-contrast');
+            localStorage.setItem('highContrast', isHighContrast);
+        });
+
+        document.getElementById('increase-spacing').addEventListener('click', function() {
+            document.body.classList.toggle('increased-spacing');
+            const isIncreasedSpacing = document.body.classList.contains('increased-spacing');
+            localStorage.setItem('increasedSpacing', isIncreasedSpacing);
+        });
+
+        // Load saved accessibility settings
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedFontSize = localStorage.getItem('fontSize');
+            const savedHighContrast = localStorage.getItem('highContrast');
+            const savedIncreasedSpacing = localStorage.getItem('increasedSpacing');
+            
+            if (savedFontSize) {
+                document.documentElement.style.fontSize = savedFontSize;
+            }
+            
+            if (savedHighContrast === 'true') {
+                document.body.classList.add('high-contrast');
+            }
+            
+            if (savedIncreasedSpacing === 'true') {
+                document.body.classList.add('increased-spacing');
+            }
+        });
+
+        // Translation system
+        const translations = {
+            pt: {
+                // Navigation
+                "nav_home": "Início",
+                "nav_services": "Serviços",
+                "nav_gallery": "Galeria",
+                "nav_contact": "Contato",
+                "nav_team": "Equipe",
+                
+                // Hero section
+                "hero_title": "UBS Duque de Caxias Betim: Cuidando da Saúde da Comunidade",
+                "hero_description": "Unidade Básica de Saúde em Betim MG oferecendo atendimento médico completo, vacinação, consultas especializadas e programas de saúde da família. Atendimento humanizado e de qualidade para toda a população.",
+                "hero_button_location": "Localização Betim MG",
+                "hero_button_services": "Nossos Serviços",
+                "hero_button_contact": "Agendar pelo WhatsApp",
+                
+                // Cards
+                "card1_title": "40+ Profissionais",
+                "card1_desc": "Equipe qualificada",
+                "card2_title": "Atendimento Humanizado",
+                "card2_desc": "Cuidado integral",
+                "card3_title": "Horário Estendido",
+                "card3_desc": "Seg-Sex 7h às 17h",
+                
+                // Services
+                "services_title": "Serviços da UBS Duque de Caxias Betim",
+                "services_subtitle": "Oferecemos uma gama completa de serviços de saúde pública pelo SUS para atender toda a família em Betim",
+                "service1_title": "Consultas Médicas",
+                "service1_desc": "Atendimento com clínicos gerais, pediatras, ginecologistas e outros especialistas. Agendamento disponível para consultas regulares.",
+                "service2_title": "Vacinação",
+                "service2_desc": "Imunização para todas as idades conforme calendário nacional. Traga sua carteira de vacinação para atualização.",
+                "service3_title": "Assistência Social",
+                "service3_desc": "Apoio psicossocial, orientação e encaminhamento para programas sociais do município de Betim.",
+                "service4_title": "Farmácia Básica",
+                "service4_desc": "Dispensação gratuita de medicamentos essenciais mediante prescrição médica válida do SUS.",
+                "service5_title": "Pré-Natal",
+                "service5_desc": "Acompanhamento integral da gestante e do bebê durante toda a gravidez com exames e orientações.",
+                "service6_title": "Saúde Bucal",
+                "service6_desc": "Atendimento odontológico, prevenção, tratamento e educação em saúde bucal para todas as idades.",
+                
+                // Stats
+                "stat1_label": "População atendida no bairro",
+                "stat2_label": "Equipes Saúde da Família",
+                "stat3_label": "Profissionais de saúde",
+                "stat4_label": "Especialidades médicas",
+                
+                // Gallery
+                "gallery_title": "Nossa Estrutura na UBS Duque de Caxias",
+                "gallery_subtitle": "Conheça nossas instalações modernas e adequadas para o atendimento em saúde",
+                
+                // Contact
+                "contact_title": "Contato UBS Duque de Caxias Betim",
+                "contact_subtitle": "Entre em contato ou visite nossa unidade de saúde em Betim",
+                "contact_address_title": "Endereço da UBS",
+                "contact_address": "Rua Lisboa, 91 - Bairro Duque de Caxias<br>Betim - Minas Gerais, CEP 32673-550",
+                "contact_phone_title": "Telefone UBS",
+                "contact_whatsapp_title": "WhatsApp UBS",
+                "contact_whatsapp_desc": "Atendimento rápido para informações, agendamentos e dúvidas",
+                "contact_whatsapp_button": "Falar no WhatsApp",
+                "contact_hours_title": "Horário de Funcionamento",
+                "contact_hours": "<strong>Segunda a Sexta:</strong> 7h às 17h<br><strong>Sábado:</strong> 7h às 12h<br><strong>Domingo e Feriados:</strong> Fechado"
+            },
+            en: {
+                // Navigation
+                "nav_home": "Home",
+                "nav_services": "Services",
+                "nav_gallery": "Gallery",
+                "nav_contact": "Contact",
+                "nav_team": "Team",
+                
+                // Hero section
+                "hero_title": "UBS Duque de Caxias Betim: Community Health Care",
+                "hero_description": "Basic Health Unit in Betim MG offering complete medical care, vaccination, specialized consultations and family health programs. Humanized and quality care for the entire population.",
+                "hero_button_location": "Location Betim MG",
+                "hero_button_services": "Our Services",
+                "hero_button_contact": "Schedule via WhatsApp",
+                
+                // Cards
+                "card1_title": "40+ Professionals",
+                "card1_desc": "Qualified team",
+                "card2_title": "Humanized Care",
+                "card2_desc": "Comprehensive care",
+                "card3_title": "Extended Hours",
+                "card3_desc": "Mon-Fri 7am to 5pm",
+                
+                // Services
+                "services_title": "Services at UBS Duque de Caxias Betim",
+                "services_subtitle": "We offer a complete range of public health services through SUS to serve the whole family in Betim",
+                "service1_title": "Medical Consultations",
+                "service1_desc": "Care with general practitioners, pediatricians, gynecologists and other specialists. Appointments available for regular consultations.",
+                "service2_title": "Vaccination",
+                "service2_desc": "Immunization for all ages according to national calendar. Bring your vaccination card for updating.",
+                "service3_title": "Social Assistance",
+                "service3_desc": "Psychosocial support, guidance and referral to social programs in Betim municipality.",
+                "service4_title": "Basic Pharmacy",
+                "service4_desc": "Free dispensing of essential medicines with valid SUS medical prescription.",
+                "service5_title": "Prenatal Care",
+                "service5_desc": "Comprehensive monitoring of pregnant woman and baby throughout pregnancy with exams and guidance.",
+                "service6_title": "Oral Health",
+                "service6_desc": "Dental care, prevention, treatment and oral health education for all ages.",
+                
+                // Stats
+                "stat1_label": "Population served in the neighborhood",
+                "stat2_label": "Family Health Teams",
+                "stat3_label": "Health professionals",
+                "stat4_label": "Medical specialties",
+                
+                // Gallery
+                "gallery_title": "Our Structure at UBS Duque de Caxias",
+                "gallery_subtitle": "Get to know our modern facilities suitable for healthcare",
+                
+                // Contact
+                "contact_title": "Contact UBS Duque de Caxias Betim",
+                "contact_subtitle": "Get in touch or visit our health unit in Betim",
+                "contact_address_title": "UBS Address",
+                "contact_address": "Rua Lisboa, 91 - Duque de Caxias Neighborhood<br>Betim - Minas Gerais, ZIP Code 32673-550",
+                "contact_phone_title": "UBS Phone",
+                "contact_whatsapp_title": "UBS WhatsApp",
+                "contact_whatsapp_desc": "Quick service for information, appointments and questions",
+                "contact_whatsapp_button": "Talk on WhatsApp",
+                "contact_hours_title": "Business Hours",
+                "contact_hours": "<strong>Monday to Friday:</strong> 7am to 5pm<br><strong>Saturday:</strong> 7am to 12pm<br><strong>Sunday and Holidays:</strong> Closed"
+            },
+            es: {
+                // Navigation
+                "nav_home": "Inicio",
+                "nav_services": "Servicios",
+                "nav_gallery": "Galería",
+                "nav_contact": "Contacto",
+                "nav_team": "Equipo",
+                
+                // Hero section
+                "hero_title": "UBS Duque de Caxias Betim: Cuidando la Salud de la Comunidad",
+                "hero_description": "Unidad Básica de Salud en Betim MG que ofrece atención médica completa, vacunación, consultas especializadas y programas de salud familiar. Atención humanizada y de calidad para toda la población.",
+                "hero_button_location": "Ubicación Betim MG",
+                "hero_button_services": "Nuestros Servicios",
+                "hero_button_contact": "Agendar por WhatsApp",
+                
+                // Cards
+                "card1_title": "40+ Profesionales",
+                "card1_desc": "Equipo calificado",
+                "card2_title": "Atención Humanizada",
+                "card2_desc": "Cuidado integral",
+                "card3_title": "Horario Extendido",
+                "card3_desc": "Lun-Vie 7h a 17h",
+                
+                // Services
+                "services_title": "Servicios de UBS Duque de Caxias Betim",
+                "services_subtitle": "Ofrecemos una gama completa de servicios de salud pública a través del SUS para atender a toda la familia en Betim",
+                "service1_title": "Consultas Médicas",
+                "service1_desc": "Atención con médicos generales, pediatras, ginecólogos y otros especialistas. Citas disponibles para consultas regulares.",
+                "service2_title": "Vacunación",
+                "service2_desc": "Inmunización para todas las edades según calendario nacional. Traiga su cartilla de vacunación para actualización.",
+                "service3_title": "Asistencia Social",
+                "service3_desc": "Apoyo psicosocial, orientación y derivación a programas sociales del municipio de Betim.",
+                "service4_title": "Farmacia Básica",
+                "service4_desc": "Dispensación gratuita de medicamentos esenciales con receta médica válida del SUS.",
+                "service5_title": "Prenatal",
+                "service5_desc": "Seguimiento integral de la gestante y del bebé durante todo el embarazo con exámenes y orientaciones.",
+                "service6_title": "Salud Bucal",
+                "service6_desc": "Atención odontológica, prevención, tratamiento y educación en salud bucal para todas las edades.",
+                
+                // Stats
+                "stat1_label": "Población atendida en el barrio",
+                "stat2_label": "Equipos de Salud Familiar",
+                "stat3_label": "Profesionales de salud",
+                "stat4_label": "Especialidades médicas",
+                
+                // Gallery
+                "gallery_title": "Nuestra Estructura en UBS Duque de Caxias",
+                "gallery_subtitle": "Conozca nuestras instalaciones modernas adecuadas para la atención en salud",
+                
+                // Contact
+                "contact_title": "Contacto UBS Duque de Caxias Betim",
+                "contact_subtitle": "Póngase en contacto o visite nuestra unidad de salud en Betim",
+                "contact_address_title": "Dirección UBS",
+                "contact_address": "Rua Lisboa, 91 - Barrio Duque de Caxias<br>Betim - Minas Gerais, CEP 32673-550",
+                "contact_phone_title": "Teléfono UBS",
+                "contact_whatsapp_title": "WhatsApp UBS",
+                "contact_whatsapp_desc": "Atención rápida para informaciones, citas y dudas",
+                "contact_whatsapp_button": "Hablar por WhatsApp",
+                "contact_hours_title": "Horario de Funcionamiento",
+                "contact_hours": "<strong>Lunes a Viernes:</strong> 7h a 17h<br><strong>Sábado:</strong> 7h a 12h<br><strong>Domingo y Feriados:</strong> Cerrado"
+            }
+        };
+
+        // Language translation
+        document.getElementById('language-select').addEventListener('change', function() {
+            const lang = this.value;
+            translatePage(lang);
+            localStorage.setItem('preferredLanguage', lang);
+        });
+
+        function translatePage(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        // Handle HTML in translations
+                        if (translations[lang][key].includes('<br>') || translations[lang][key].includes('<strong>')) {
+                            element.innerHTML = translations[lang][key];
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                }
+            });
+            
+            // Update page language attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Load saved language preference
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('preferredLanguage') || 'pt';
+            document.getElementById('language-select').value = savedLanguage;
+            translatePage(savedLanguage);
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.querySelector('.nav-menu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!menu.contains(event.target) && !menuBtn.contains(event.target) && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+            }
+        });
+
+        // Update active nav link on scroll
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}` || (current === '' && link.getAttribute('href') === '#')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const menu = document.querySelector('.nav-menu');
+                    const menuBtn = document.querySelector('.mobile-menu-btn');
+                    if (menu.classList.contains('active')) {
+                        menu.classList.remove('active');
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                        menuBtn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+                    }
+                }
+            });
+        });
+
+        // Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Track WhatsApp clicks
+        document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
+            link.addEventListener('click', function() {
+                if ('gtag' in window) {
+                    gtag('event', 'whatsapp_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'whatsapp_contact'
+                    });
+                }
+                console.log('WhatsApp click tracked from:', this.getAttribute('href'));
+            });
+        });
+
+        // Add structured data dynamically
+        function addStructuredData() {
+            // Additional structured data can be added here
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.text = JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "UBS Duque de Caxias Betim",
+                "url": "https://ubsduquedecaxias.com",
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://ubsduquedecaxias.com/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            });
+            document.head.appendChild(script);
+        }
+
+        // Initialize structured data
+        window.addEventListener('DOMContentLoaded', addStructuredData);
+    </script>
+</body>
+</html>
